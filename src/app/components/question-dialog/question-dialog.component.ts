@@ -55,4 +55,13 @@ export class QuestionDialogComponent {
         this.dialogRef.close(this.form.value);
     }
 
+    deleteAnswer(index: number){
+      (this.answers.length > 2) ? this.answers.removeAt(index) : alert('Answers must have at least two elements')
+    }
+
+    addAnswer(){
+      let answerText = "Answer " + (this.answers.length + 1);
+      this.answers.push(this.createAnswerGroup(new AnswerModel(answerText)));
+    }
+
 }

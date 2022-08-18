@@ -1,17 +1,30 @@
 <h2 mat-dialog-title>{{title}}</h2>
 
 <mat-dialog-content [formGroup]="form">
-    <input type="text" formControlName="text">
-    <div formArrayName="answers">
-        <div  *ngFor='let answer of answers.controls;let i = index' [formGroupName]="i">
-            <input formControlName = "text">
-        </div>
+
+    <div class="step-template">
+        <span>
+            <input type="text" style="margin-bottom:15px" formControlName="text"> 
+            <button style="position: relative;float:right;" (click)="addAnswer()" style="margin-left:15px">Add answer</button>
+        </span>
+        <table class="wizard-quiz-table" formArrayName="answers">
+            <th>
+              <span class="step-content-label">Question Text</span>
+            </th>
+            <th style="width:11%;text-align:center;">
+              <span class="step-content-label">Delete</span>
+            </th>
+            <tr *ngFor='let answer of answers.controls;let i = index' [formGroupName]="i">
+                <td><input formControlName="text" style="border:none;"></td>
+                <td><i class="material-icons trash-bin" (click)='deleteAnswer(i)'>delete</i></td>
+            </tr>
+        </table>
     </div>
 
 </mat-dialog-content>
 
-<mat-dialog-actions>
+<mat-dialog-actions style="position: relative;float:right;">
     <button (click)="close()">Close</button>
-    <button (click)="save()">Save</button>
+    <button (click)="save()" style="margin-left:5px">Save</button>
 </mat-dialog-actions>
 
