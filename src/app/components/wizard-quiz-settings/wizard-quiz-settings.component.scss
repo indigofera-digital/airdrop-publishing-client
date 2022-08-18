@@ -1,0 +1,38 @@
+@import './../../../assets/colors.scss';
+
+.wizard-quiz-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.wizard-quiz-table th{
+    background-color: $blue;
+    color: white;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.wizard-quiz-table td{
+    height: 25px;
+}
+
+.wizard-quiz-table th, .wizard-quiz-table td{
+    border: 0.1px solid black;
+    text-align: left;
+    padding: 5px;
+}
+
+.wizard-quiz-table tr td:nth-child(2), .wizard-quiz-table tr td:nth-child(3){
+    text-align: center;
+    padding: 0;
+}
+
+.edit-pencil{
+    color:$blue;
+    cursor: pointer;
+}
+
+.trash-bin{
+    color:crimson;
+    cursor: pointer;
+}
