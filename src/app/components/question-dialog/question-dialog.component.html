@@ -5,17 +5,21 @@
     <div class="step-template">
         <span>
             <input type="text" style="margin-bottom:15px" formControlName="text"> 
-            <button style="position: relative;float:right;" (click)="addAnswer()" style="margin-left:15px">Add answer</button>
+            <button style="position: relative;float:right;" (click)="addAnswer()">Add answer</button>
         </span>
         <table class="wizard-quiz-table" formArrayName="answers">
             <th>
               <span class="step-content-label">Question Text</span>
             </th>
             <th style="width:11%;text-align:center;">
-              <span class="step-content-label">Delete</span>
+                <span class="step-content-label">Correct</span>
+            </th>
+            <th style="width:11%;text-align:center;">
+                <span class="step-content-label">Delete</span>
             </th>
             <tr *ngFor='let answer of answers.controls;let i = index' [formGroupName]="i">
                 <td><input formControlName="text" style="border:none;"></td>
+                <td><input  type="radio"  [value]="answer.value.id" [formControl]="correctAnswerControl"></td>
                 <td><i class="material-icons trash-bin" (click)='deleteAnswer(i)'>delete</i></td>
             </tr>
         </table>

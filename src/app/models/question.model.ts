@@ -5,12 +5,12 @@ export class QuestionModel {
     id: string;
     text: string;
     answers: Array<AnswerModel>;
-    correctAnswer: AnswerModel;
+    correctAnswerId: string;
 
-    constructor(text: string, answers: Array<AnswerModel>, correctAnswer: AnswerModel){
+    constructor(text: string, answers: Array<AnswerModel>, correctAnswerId: string){
         this.id = uuid();
         this.text = text;
         this.answers = answers;
-        this.correctAnswer = correctAnswer;
+        this.correctAnswerId = correctAnswerId;
     }
 }

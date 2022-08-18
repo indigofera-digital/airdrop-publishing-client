@@ -39,7 +39,7 @@ export class WizardQuizSettingsComponent implements OnInit {
     let answer4 = new AnswerModel('Answer 4');
 
     let answers = [answer1, answer2, answer3, answer4];
-    let question = new QuestionModel('New Question', answers, answer1);
+    let question = new QuestionModel('New Question', answers, answer1.id);
     this.openDialog(true, question);
   }
 

@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { QuestionDialogModel } from 'src/app/models/question-dialog.model';
 import { AnswerModel } from 'src/app/models/answer.model';
@@ -31,7 +31,7 @@ export class QuestionDialogComponent {
           id : this.dialogModel.question.id,
           text: [this.dialogModel.question.text, []],
           answers: this.fb.array(fba),
-          correctAnswer: [this.dialogModel.question.correctAnswer, []]
+          correctAnswerId: [this.dialogModel.question.correctAnswerId, Validators.required]
         });
         
     }
@@ -45,6 +45,10 @@ export class QuestionDialogComponent {
 
     get answers(){
       return this.form.controls["answers"] as FormArray;
+    }
+
+    get correctAnswerControl(){
+      return this.form.controls["correctAnswerId"] as FormControl;
     }
 
     close() {
