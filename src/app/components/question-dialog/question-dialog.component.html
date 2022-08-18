@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content [formGroup]="form">
+    <input type="text" formControlName="text">
+    <div formArrayName="answers">
+        <div  *ngFor='let answer of answers.controls;let i = index' [formGroupName]="i">
+            <input formControlName = "text">
+        </div>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button (click)="close()">Close</button>
+    <button (click)="save()">Save</button>
+</mat-dialog-actions>
+

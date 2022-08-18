@@ -1,0 +1,22 @@
+<div class="step-template">
+    <h2>Airdrop Prize Distribution</h2>
+
+    <table>
+        <tr>
+          <td><span class="step-content-label">Wallet Address</span></td> 
+          <input type="text" [(ngModel)]="stepsService.data.walletAddress">
+        </tr>
+        <tr>
+          <td><span class="step-content-label">Token</span></td>
+          <td><input type="text" [(ngModel)]="stepsService.data.token"></td>
+        </tr>
+        <tr>
+          <td><span class="step-content-label">Amount</span></td>
+          <td><input type="number" [(ngModel)]="stepsService.data.amount"></td>
+        </tr>
+        <tr>
+          <td><span class="step-content-label">Reward</span></td>
+          <td><input type="number" [(ngModel)]="stepsService.data.reward"></td>
+        </tr>
+    </table>
+</div>

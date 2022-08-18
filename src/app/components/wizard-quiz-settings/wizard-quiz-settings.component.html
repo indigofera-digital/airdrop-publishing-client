@@ -1,0 +1,19 @@
+<div class="step-template">
+    <h2>Quiz Settings <button style="position: relative;float:right;" (click)="addQuestion()">Add question</button></h2>
+    <table *ngIf="questions.length!==0" class="wizard-quiz-table">
+        <th>
+          <span class="step-content-label">Question Text</span>
+        </th>
+        <th style="width:11%;text-align:center;">
+          <span class="step-content-label">Edit</span>
+        </th>
+        <th style="width:11%;text-align:center;">
+          <span class="step-content-label">Delete</span>
+        </th>
+        <tr *ngFor='let question of questions;let i = index'>
+            <td>{{question.text}}</td>
+            <td><i class="material-icons edit-pencil" (click)='editQuestion(question)'>edit</i></td>
+            <td><i class="material-icons trash-bin" (click)='deleteQuestion(i)'>delete</i></td>
+        </tr>
+    </table>
+</div>
