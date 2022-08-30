@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, ViewEncapsulation, OnChanges } from '@angular/core';
-import { StepsService } from 'src/app/services/steps.service';
-import { StepModel } from '../../models/step.model';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core'
+import { StepsService } from 'src/app/services/steps.service'
+import { StepModel } from '../../models/step.model'
 
 @Component({
   selector: 'app-wizard-airdrop-details',
@@ -10,17 +10,17 @@ import { StepModel } from '../../models/step.model';
 })
 export class WizardAirdropDetailsComponent implements OnInit {
 
-  @Input() step: StepModel;
+  @Input() step: StepModel
 
   constructor(protected stepsService: StepsService) { 
     
   }
 
   ngOnInit(): void {
-    this.stepsService.data.airdropName = "";
-    this.stepsService.data.airdropType = "Quiz";
-    this.stepsService.data.chain = "Avalanche Fuji Testnet";
-    this.step.isComplete = true;
+    this.stepsService.data.name = ""
+    this.stepsService.data.type = "Quiz"
+    this.stepsService.data.chain = "Avalanche"
+    this.step.isComplete = true
   }
 
 }

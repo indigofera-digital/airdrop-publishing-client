@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { StepModel } from 'src/app/models/step.model';
-import { StepsService } from 'src/app/services/steps.service';
-import { Observable } from 'rxjs';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { StepModel } from 'src/app/models/step.model'
+import { StepsService } from 'src/app/services/steps.service'
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'app-steps',
@@ -11,17 +11,17 @@ import { Observable } from 'rxjs';
 })
 export class StepsComponent implements OnInit {
 
-  steps: Observable<StepModel[]>;
-  currentStep: Observable<StepModel>;
+  steps: Observable<StepModel[]>
+  currentStep: Observable<StepModel>
 
   constructor(protected stepsService: StepsService) { }
 
   ngOnInit(): void {
-    this.steps = this.stepsService.getSteps();
-    this.currentStep = this.stepsService.getCurrentStep();
+    this.steps = this.stepsService.getSteps()
+    this.currentStep = this.stepsService.getCurrentStep()
   }
 
   onStepClick(step: StepModel) {
-    this.stepsService.setCurrentStep(step);
+    this.stepsService.setCurrentStep(step)
   }
 }
