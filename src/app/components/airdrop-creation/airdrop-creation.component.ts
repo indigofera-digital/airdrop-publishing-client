@@ -1,8 +1,9 @@
-import { AfterContentInit, AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { StepModel } from 'src/app/models/step.model';
-import { StepsService } from 'src/app/services/steps.service';
+import { HttpClient } from '@angular/common/http'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
+import { Router } from '@angular/router'
+import { Observable } from 'rxjs'
+import { StepModel } from 'src/app/models/step.model'
+import { StepsService } from 'src/app/services/steps.service'
 
 @Component({
   selector: 'app-airdrop-creation',
@@ -16,27 +17,32 @@ export class AirdropCreationComponent implements OnInit {
 
   constructor(
     protected stepsService: StepsService,
-    protected router: Router) { }
+    protected router: Router,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.currentStep = this.stepsService.getCurrentStep();
+    this.currentStep = this.stepsService.getCurrentStep()
   }
 
   onNextStep() {
     if (!this.stepsService.isLastStep()) {
-      this.stepsService.moveToNextStep();
+      this.stepsService.moveToNextStep()
     } else {
-      this.onSubmit();
+      this.onSubmit()
     }
   }
 
   showButtonLabel() {
-    return !this.stepsService.isLastStep() ? 'Continue' : 'Finish';
+    return !this.stepsService.isLastStep() ? 'Continue' : 'Finish'
   }
 
   onSubmit(): void {
-    alert(JSON.stringify(this.stepsService.getData())) 
-    this.router.navigate(['/complete']);
+    this.http.post<any>('https://qxomxlczzk.execute-api.eu-west-1.amazonaws.com/Prod/create-airdrop', this.stepsService.getData()).subscribe(data => {
+      this.stepsService.moveToNextStep()
+      this.router.navigate(['/complete'], {queryParams: {campaignUrl: data.campaignUrl}})
+    })
+
+
   }
 
 }

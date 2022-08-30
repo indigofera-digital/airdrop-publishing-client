@@ -1,17 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { WizardAirdropDetailsComponent } from './wizard-airdrop-details.component';
 
 describe('WizardAirdropDetailsComponent', () => {
   let component: WizardAirdropDetailsComponent;
   let fixture: ComponentFixture<WizardAirdropDetailsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ WizardAirdropDetailsComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WizardAirdropDetailsComponent);
