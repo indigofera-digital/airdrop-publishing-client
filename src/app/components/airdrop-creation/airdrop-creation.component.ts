@@ -38,8 +38,8 @@ export class AirdropCreationComponent implements OnInit {
 
   onSubmit(): void {
     this.http.post<any>('https://qxomxlczzk.execute-api.eu-west-1.amazonaws.com/Prod/create-airdrop', this.stepsService.getData()).subscribe(data => {
-      this.stepsService.moveToNextStep()
-      this.router.navigate(['/complete'], {queryParams: {campaignUrl: data.campaignUrl}})
+      this.stepsService.setFirstStep()
+      this.router.navigate(['/complete'], {queryParams: {campaignUrl: data.campaignUrl, address: data.address}})
     })
 
 

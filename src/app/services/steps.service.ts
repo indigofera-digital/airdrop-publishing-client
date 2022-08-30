@@ -46,8 +46,6 @@ export class StepsService {
 
     if (index < this.steps$.value.length) {
       this.currentStep$.next(this.steps$.value[index])
-    } else if (this.isLastStep()){
-      this.setFirstStep()
     }
   }
 

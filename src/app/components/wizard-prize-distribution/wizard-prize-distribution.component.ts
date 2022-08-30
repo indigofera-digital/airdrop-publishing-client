@@ -15,10 +15,10 @@ export class WizardPrizeDistributionComponent implements OnInit {
   constructor(protected stepsService: StepsService) { }
 
   ngOnInit(): void {
-    this.stepsService.data.walletAddress = ""
-    this.stepsService.data.token = "AVAX <token address>"
-    this.stepsService.data.amount = 0
-    this.stepsService.data.reward = 0
+    //this.stepsService.data.walletAddress = ""
+    this.stepsService.data.token = "TST"
+    //this.stepsService.data.amount = 0
+    this.stepsService.data.reward = 1
     this.step.isComplete = true
   }
 

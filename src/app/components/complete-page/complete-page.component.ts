@@ -9,12 +9,14 @@ import { ActivatedRoute } from '@angular/router'
 export class CompletePageComponent implements OnInit {
 
   url: string = ''
+  address: string = ''
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params) => {
       this.url = params["campaignUrl"]
+      this.address = params["address"]
     });
   }
 
